@@ -1,0 +1,8 @@
+Documento tipo contrato incluye cláusulas legales, firmas y condiciones de servicio.
+Factura electrónica contiene valores monetarios, impuestos, NIT y datos de facturación.
+Documento confidencial incluye información sensible, secretos industriales o datos privados protegidos.
+Reporte financiero presenta balances, ingresos, gastos y proyecciones económicas de la empresa.
+Manual técnico describe procedimientos de instalación, uso y mantenimiento de sistemas de software.
+Memorando interno comunica decisiones administrativas, políticas de la empresa o avisos de recursos humanos.
+Acta de reunión registra asistentes, temas discutidos, compromisos, decisiones y fechas límite.
+Historia clínica detalla diagnósticos, tratamientos, síntomas e información médica del paciente.

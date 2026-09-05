@@ -1,48 +1,55 @@
-# IA Semestre — Sistema de Análisis Documental
+# IA Semestre — Sistema de Análisis Documental 📄🤖
 
-Prácticas y proyecto del curso de Inteligencia Artificial.
+Este repositorio contiene el desarrollo progresivo de un Sistema de Análisis Documental impulsado por Inteligencia Artificial. El proyecto se enfoca en automatizar la clasificación, búsqueda y análisis de documentos (contratos, facturas, reportes técnicos, etc.) utilizando técnicas de Machine Learning y sistemas expertos.
 
-Todas las prácticas se aplican a un mismo proyecto: un **sistema de análisis documental** que recibe descripciones de problemas reales sobre documentos (contratos, facturas, certificados, solicitudes) y los analiza con distintas técnicas de IA.
-
-Los 20 casos del proyecto viven en `data/casos_ia.csv` y son los mismos en todas las semanas, lo que permite comparar los enfoques entre sí sobre exactamente los mismos datos.
+Desarrollado para la asignatura de Inteligencia Artificial del programa de Ingeniería de Sistemas en la Escuela Tecnológica Instituto Técnico Central (ETITC).
 
 ---
 
-## Índice
-
-- [Estructura del repositorio](#estructura-del-repositorio)
-- [Base compartida](#base-compartida)
-- [Instalación](#instalación)
-- [Ejecución](#ejecución)
-- [Semana 02 — Fundamentos de aprendizaje supervisado](#semana-02--fundamentos-de-aprendizaje-supervisado)
-- [Semana 03 — Taxonomía de Inteligencia Artificial](#semana-03--taxonomía-de-inteligencia-artificial)
-- [Semana 04 — Búsqueda A\* y Minimax](#semana-04--búsqueda-a-y-minimax)
-- [Tecnologías](#tecnologías)
+## 🛠️ Tecnologías y Herramientas
+El proyecto está desarrollado principalmente en **Python** haciendo uso de las siguientes librerías y entornos:
+* **Scikit-learn:** Para la vectorización (TF-IDF) y modelos de clasificación (Naive Bayes, Regresión Logística).
+* **NumPy & Pandas:** Para el manejo, estructuración y análisis de los datos.
+* **Matplotlib:** Para la visualización de métricas y resultados.
+* **JupyterLab:** Para la experimentación y análisis exploratorio de datos.
 
 ---
 
-## Estructura del repositorio
+## 📅 Avance del Proyecto (Semana a Semana)
 
-```text
-ia_semestre/
-├── data/
-│   └── casos_ia.csv          # 20 casos reales del sistema de análisis documental
-├── reports/
-│   ├── semana02.md           # generado automáticamente
-│   ├── semana03.md           # generado automáticamente
-│   └── semana04.md           # generado automáticamente
-├── src/
-│   ├── semana02_fundamentos.py
-│   ├── semana03_taxonomia.py
-│   └── semana04_busqueda.py
-├── requirements.txt
-└── README.md
+El desarrollo del sistema se divide en módulos incrementales. Cada semana aborda un concepto fundamental de la IA aplicado al dominio de los documentos:
+
+### Semana 02: Fundamentos (`semana02_fundamentos.py`)
+* **Objetivo:** Establecer las bases del proyecto y la lectura inicial de los datos.
+* **Descripción:** Implementación de las estructuras de datos iniciales y algoritmos de base para procesar la información contenida en el dataset de prueba (`casos_ia.csv`).
+
+### Semana 03: Taxonomía (`semana03_taxonomia.py`)
+* **Objetivo:** Organizar y clasificar el dominio de conocimiento.
+* **Descripción:** Desarrollo de la jerarquía conceptual de los documentos y categorías manejadas por el sistema (ej. Legal, Financiero, Técnico, RRHH), sentando las bases para una clasificación estructurada.
+
+### Semana 04: Búsqueda (`semana04_busqueda.py`)
+* **Objetivo:** Implementar métodos de búsqueda inteligente.
+* **Descripción:** Integración de algoritmos de búsqueda (como grafos de búsqueda A* o árboles de decisión Minimax) para recorrer el espacio de soluciones y encontrar rutas óptimas dentro del análisis de los datos.
+
+### Semana 05: Sistema Híbrido y Recuperación de Información (`semana05_sistema_hibrido.py`)
+* **Objetivo:** Integrar un sistema experto con recuperación de información (NLP).
+* **Descripción:** 
+  * Construcción de una base de conocimiento documental (`base_conocimiento.txt`).
+  * Implementación de **TF-IDF** (Term Frequency - Inverse Document Frequency) y similitud del coseno para recuperación de información relevante frente a consultas en texto libre.
+  * Diseño de un **Sistema Experto** mediante reglas lógicas condicionales para emitir alertas, prioridades y recomendaciones basadas en el texto analizado.
 
 ---
 
-## Autores
+## ⚙️ Instalación y Configuración
 
-- Jenny Valentina Rojas Orjuela
-- Laury Dayana Gama Sosa
+Sigue estos pasos para clonar y ejecutar el proyecto en un entorno local:
 
----
+1. **Clonar el repositorio:**
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd ia_semestre
+
+
+   ## 👥 Autores
+* **Jenny Valentina Rojas Orjuela**
+* **Laury Dayana Gama Sosa**
