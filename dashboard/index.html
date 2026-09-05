@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="logo-badge">Studio</div>
+            <div class="title-container">
+                <h1>Dashboard <span class="separator">•</span> Sistema análisis documental</h1>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <button id="theme-toggle" title="Cambiar Tema (Claro/Oscuro)">🌓</button>
+            <div class="module-badge">Recopilación de prácticas IA</div>
+        </div>
+    </header>
+
+    <nav class="week-nav" id="week-tabs"></nav>
+    <div class="metrics-bar" id="metrics-container"></div>
+
+    <main class="workspace">
+        <section class="panel left-panel" id="left-panel">
+            <div class="panel-header">
+                <div class="file-info">
+                    <span>📄</span>
+                    <span class="label">Archivo Activo:</span>
+                    <span class="file-path" id="file-path">src/...</span>
+                </div>
+                <div class="panel-controls">
+                    <span class="line-count" id="line-count">0 líneas</span>
+                    <button class="expand-btn" onclick="togglePanel('left')" title="Expandir/Contraer">⛶</button>
+                </div>
+            </div>
+            <div class="code-container" id="code-container"></div>
+        </section>
+
+        <div class="resizer" id="dragMe"></div>
+
+        <section class="panel right-panel" id="right-panel">
+            <div class="panel-header">
+                <div class="didactic-title">
+                    <span>💡</span> Análisis Conceptual
+                </div>
+                <div class="panel-controls">
+                    <span class="current-line-indicator" id="current-line-indicator">Selecciona una línea</span>
+                    <button class="expand-btn" onclick="togglePanel('right')" title="Expandir/Contraer">⛶</button>
+                </div>
+            </div>
+            <div class="explanation-container" id="explanation-container">
+                <div class="empty-state" id="empty-state">
+                    <h3>Bienvenido al Laboratorio Interactivo</h3>
+                    <p>Haz clic en cualquier línea del código fuente para cargar el análisis didáctico correspondiente.</p>
+                </div>
+
+                <div class="explanation-card" id="explanation-card" style="display: none;">
+                    <div class="overview-box">
+                        <div class="overview-title">❖ Visión General del Bloque</div>
+                        <div class="overview-text" id="exp-overview">...</div>
+                    </div>
+
+                    <div class="code-snippet-box">
+                        <span class="snippet-label" id="exp-line-num">Línea 1</span>
+                        <code class="snippet-code" id="exp-snippet">...</code>
+                        <span class="snippet-type" id="exp-type">Sentencia</span>
+                    </div>
+
+                    <div class="didactic-section">
+                        <div class="section-title pink">📌 ¿Qué hace la línea?</div>
+                        <p class="section-text" id="exp-what">...</p>
+                    </div>
+
+                    <div class="didactic-section">
+                        <div class="section-title blue">🎯 ¿Para qué sirve en el proyecto de IA?</div>
+                        <p class="section-text" id="exp-why">...</p>
+                    </div>
+
+                    <div class="didactic-section">
+                        <div class="section-title purple">💻 Conceptos de programación y Python aplicados</div>
+                        <p class="section-text" id="exp-concepts">...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
