@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="relacion_frase" attr.type="string"/>
+<key id="d5" for="edge" attr.name="label" attr.type="string"/>
+<key id="d4" for="node" attr.name="oficina" attr.type="string"/>
+<key id="d3" for="node" attr.name="area" attr.type="string"/>
+<key id="d2" for="node" attr.name="nombre_legible" attr.type="string"/>
+<key id="d1" for="node" attr.name="descripcion" attr.type="string"/>
+<key id="d0" for="node" attr.name="tipo" attr.type="string"/>
+<graph edgedefault="directed"><node id="DocumentoDigital">
+  <data key="d0">Entidad</data>
+  <data key="d1">Archivo digital o texto ingresado al sistema documental.</data>
+</node>
+<node id="RedNeuronal">
+  <data key="d0">AgenteIA</data>
+  <data key="d1">Modelo de Perceptrón Multicapa (MLP) que procesa patrones y genera inferencias.</data>
+</node>
+<node id="Prediccion">
+  <data key="d0">Inferencia</data>
+  <data key="d1">Resultado categórico probabilístico asignado a un documento.</data>
+</node>
+<node id="EvidenciaBD">
+  <data key="d0">Almacenamiento</data>
+  <data key="d1">Registro persistente en base de datos SQLite con trazabilidad del procesamiento.</data>
+</node>
+<node id="TipoDocumento">
+  <data key="d0">Clasificacion</data>
+  <data key="d1">Taxonomía de clases documentales del sistema.</data>
+</node>
+<node id="CategoriaDominio">
+  <data key="d0">Dominio</data>
+  <data key="d1">Área macro de negocio u organizacional a la que pertenece el documento.</data>
+</node>
+<node id="DepartamentoResponsable">
+  <data key="d0">UnidadOrganizacional</data>
+  <data key="d1">Dependencia encargada de la gestión y custodia del documento.</data>
+</node>
+<node id="AccionFlujo">
+  <data key="d0">PoliticaOperativa</data>
+  <data key="d1">Procedimiento o acción inmediata requerida según el tipo de documento.</data>
+</node>
+<node id="contrato">
+  <data key="d0">SubclaseTipo</data>
+  <data key="d2">Contrato Legal</data>
+</node>
+<node id="factura">
+  <data key="d0">SubclaseTipo</data>
+  <data key="d2">Factura Comercial</data>
+</node>
+<node id="reporte_financiero">
+  <data key="d0">SubclaseTipo</data>
+  <data key="d2">Reporte Financiero</data>
+</node>
+<node id="manual_tecnico">
+  <data key="d0">SubclaseTipo</data>
+  <data key="d2">Manual Técnico</data>
+</node>
+<node id="memorando">
+  <data key="d0">SubclaseTipo</data>
+  <data key="d2">Memorando Interno</data>
+</node>
+<node id="acta_reunion">
+  <data key="d0">SubclaseTipo</data>
+  <data key="d2">Acta de Reunión</data>
+</node>
+<node id="Dominio_Legal">
+  <data key="d0">SubclaseDominio</data>
+  <data key="d3">Asuntos Jurídicos y Normativos</data>
+</node>
+<node id="Dominio_Financiero">
+  <data key="d0">SubclaseDominio</data>
+  <data key="d3">Gestión Contable, Tributaria y Fiscal</data>
+</node>
+<node id="Dominio_Tecnologico">
+  <data key="d0">SubclaseDominio</data>
+  <data key="d3">Infraestructura, TI y Desarrollo</data>
+</node>
+<node id="Dominio_Administrativo">
+  <data key="d0">SubclaseDominio</data>
+  <data key="d3">Gestión Humana y Gobierno Corporativo</data>
+</node>
+<node id="Area_Juridica">
+  <data key="d0">Departamento</data>
+  <data key="d4">Gerencia Jurídica y Cumplimiento</data>
+</node>
+<node id="Contabilidad_Tesoreria">
+  <data key="d0">Departamento</data>
+  <data key="d4">Departamento de Finanzas y Contabilidad</data>
+</node>
+<node id="Operaciones_TI">
+  <data key="d0">Departamento</data>
+  <data key="d4">Dirección de Tecnología de la Información</data>
+</node>
+<node id="Gestion_Humana">
+  <data key="d0">Departamento</data>
+  <data key="d4">Dirección de Talento Humano y Operaciones</data>
+</node>
+<node id="Custodia_Firmas_Legales">
+  <data key="d0">Accion</data>
+  <data key="d1">Verificación de personería jurídica, autenticidad de firmas y custodia bajo bóveda.</data>
+</node>
+<node id="Auditoria_Tributaria">
+  <data key="d0">Accion</data>
+  <data key="d1">Conciliación de impuestos, liquidación de retenciones y registro en libro mayor.</data>
+</node>
+<node id="Despliegue_Documentacion_Tecnica">
+  <data key="d0">Accion</data>
+  <data key="d1">Publicación en repositorio técnico de ingeniería y validación de estándares de código.</data>
+</node>
+<node id="Difusion_Interna">
+  <data key="d0">Accion</data>
+  <data key="d1">Notificación a colaboradores y registro en actas de seguimiento institucional.</data>
+</node>
+<edge source="RedNeuronal" target="DocumentoDigital">
+  <data key="d5">analiza_patrones_de</data>
+  <data key="d6">RedNeuronal analiza_patrones_de DocumentoDigital</data>
+</edge>
+<edge source="RedNeuronal" target="Prediccion">
+  <data key="d5">genera_prediccion</data>
+  <data key="d6">RedNeuronal genera_prediccion Prediccion</data>
+</edge>
+<edge source="Prediccion" target="TipoDocumento">
+  <data key="d5">asigna_clase_a</data>
+  <data key="d6">Prediccion asigna_clase_a TipoDocumento</data>
+</edge>
+<edge source="Prediccion" target="EvidenciaBD">
+  <data key="d5">registra_evidencia_en</data>
+  <data key="d6">Prediccion registra_evidencia_en EvidenciaBD</data>
+</edge>
+<edge source="EvidenciaBD" target="DocumentoDigital">
+  <data key="d5">garantiza_trazabilidad_de</data>
+  <data key="d6">EvidenciaBD garantiza_trazabilidad_de DocumentoDigital</data>
+</edge>
+<edge source="TipoDocumento" target="CategoriaDominio">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">TipoDocumento pertenece_a_dominio CategoriaDominio</data>
+</edge>
+<edge source="TipoDocumento" target="DepartamentoResponsable">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">TipoDocumento enruta_hacia DepartamentoResponsable</data>
+</edge>
+<edge source="TipoDocumento" target="AccionFlujo">
+  <data key="d5">determina_accion</data>
+  <data key="d6">TipoDocumento determina_accion AccionFlujo</data>
+</edge>
+<edge source="TipoDocumento" target="contrato">
+  <data key="d5">incluye_tipo</data>
+  <data key="d6">TipoDocumento incluye_tipo contrato</data>
+</edge>
+<edge source="TipoDocumento" target="factura">
+  <data key="d5">incluye_tipo</data>
+  <data key="d6">TipoDocumento incluye_tipo factura</data>
+</edge>
+<edge source="TipoDocumento" target="reporte_financiero">
+  <data key="d5">incluye_tipo</data>
+  <data key="d6">TipoDocumento incluye_tipo reporte_financiero</data>
+</edge>
+<edge source="TipoDocumento" target="manual_tecnico">
+  <data key="d5">incluye_tipo</data>
+  <data key="d6">TipoDocumento incluye_tipo manual_tecnico</data>
+</edge>
+<edge source="TipoDocumento" target="memorando">
+  <data key="d5">incluye_tipo</data>
+  <data key="d6">TipoDocumento incluye_tipo memorando</data>
+</edge>
+<edge source="TipoDocumento" target="acta_reunion">
+  <data key="d5">incluye_tipo</data>
+  <data key="d6">TipoDocumento incluye_tipo acta_reunion</data>
+</edge>
+<edge source="contrato" target="Dominio_Legal">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">contrato pertenece_a_dominio Dominio_Legal</data>
+</edge>
+<edge source="contrato" target="Area_Juridica">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">contrato enruta_hacia Area_Juridica</data>
+</edge>
+<edge source="contrato" target="Custodia_Firmas_Legales">
+  <data key="d5">determina_accion</data>
+  <data key="d6">contrato determina_accion Custodia_Firmas_Legales</data>
+</edge>
+<edge source="factura" target="Dominio_Financiero">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">factura pertenece_a_dominio Dominio_Financiero</data>
+</edge>
+<edge source="factura" target="Contabilidad_Tesoreria">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">factura enruta_hacia Contabilidad_Tesoreria</data>
+</edge>
+<edge source="factura" target="Auditoria_Tributaria">
+  <data key="d5">determina_accion</data>
+  <data key="d6">factura determina_accion Auditoria_Tributaria</data>
+</edge>
+<edge source="reporte_financiero" target="Dominio_Financiero">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">reporte_financiero pertenece_a_dominio Dominio_Financiero</data>
+</edge>
+<edge source="reporte_financiero" target="Contabilidad_Tesoreria">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">reporte_financiero enruta_hacia Contabilidad_Tesoreria</data>
+</edge>
+<edge source="reporte_financiero" target="Auditoria_Tributaria">
+  <data key="d5">determina_accion</data>
+  <data key="d6">reporte_financiero determina_accion Auditoria_Tributaria</data>
+</edge>
+<edge source="manual_tecnico" target="Dominio_Tecnologico">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">manual_tecnico pertenece_a_dominio Dominio_Tecnologico</data>
+</edge>
+<edge source="manual_tecnico" target="Operaciones_TI">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">manual_tecnico enruta_hacia Operaciones_TI</data>
+</edge>
+<edge source="manual_tecnico" target="Despliegue_Documentacion_Tecnica">
+  <data key="d5">determina_accion</data>
+  <data key="d6">manual_tecnico determina_accion Despliegue_Documentacion_Tecnica</data>
+</edge>
+<edge source="memorando" target="Dominio_Administrativo">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">memorando pertenece_a_dominio Dominio_Administrativo</data>
+</edge>
+<edge source="memorando" target="Gestion_Humana">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">memorando enruta_hacia Gestion_Humana</data>
+</edge>
+<edge source="memorando" target="Difusion_Interna">
+  <data key="d5">determina_accion</data>
+  <data key="d6">memorando determina_accion Difusion_Interna</data>
+</edge>
+<edge source="acta_reunion" target="Dominio_Administrativo">
+  <data key="d5">pertenece_a_dominio</data>
+  <data key="d6">acta_reunion pertenece_a_dominio Dominio_Administrativo</data>
+</edge>
+<edge source="acta_reunion" target="Gestion_Humana">
+  <data key="d5">enruta_hacia</data>
+  <data key="d6">acta_reunion enruta_hacia Gestion_Humana</data>
+</edge>
+<edge source="acta_reunion" target="Difusion_Interna">
+  <data key="d5">determina_accion</data>
+  <data key="d6">acta_reunion determina_accion Difusion_Interna</data>
+</edge>
+</graph></graphml>
