@@ -767,8 +767,7 @@ def generar_reporte_md(evaluacion: dict, muestras_procesadas: list[dict], ontolo
     contenido = f"""# Reporte Semana 08 - Representaciones del Reconocimiento
 
 **Proyecto:** Sistema de Análisis y Gestión Documental con Inteligencia Artificial  
-**Fecha de corte:** Septiembre 2026  
-**Modalidad:** Individual  
+**Fecha de corte:** Septiembre 2026    
 **Entrega:** Repositorio GitHub – Commit Semana 8  
 
 ---

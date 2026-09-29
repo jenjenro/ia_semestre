@@ -165,13 +165,13 @@ $$\text{Entrada} \longrightarrow \text{Red Neuronal (RNA)} \longrightarrow \text
 ### Evidencia de Registros Procesados
 | ID BD | Documento Analizado | Formato | Cat. Real | Predicción RNA | Confianza | Estado | Destino Ontológico |
 | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :--- |
-| 8 | `contrato_servicios_2026.txt` | `txt` | contrato | **contrato** | 92.3% | Procesado | Area_Juridica (Dominio_Legal) |
-| 9 | `factura_proveedor_servicios.txt` | `txt` | factura | **factura** | 96.1% | Procesado | Contabilidad_Tesoreria (Dominio_Financiero) |
-| 10 | `balance_general_ejercicio.docx` | `docx` | reporte_financiero | **reporte_financiero** | 99.7% | Procesado | Contabilidad_Tesoreria (Dominio_Financiero) |
-| 11 | `manual_despliegue_contenedores.md` | `md` | manual_tecnico | **manual_tecnico** | 98.8% | Procesado | Operaciones_TI (Dominio_Tecnologico) |
-| 12 | `circular_politica_laboral.txt` | `txt` | memorando | **memorando** | 98.8% | Procesado | Gestion_Humana (Dominio_Administrativo) |
-| 13 | `acta_comite_directivo.txt` | `txt` | acta_reunion | **acta_reunion** | 98.5% | Procesado | Gestion_Humana (Dominio_Administrativo) |
-| 14 | `receta_reposteria_atipica.txt` | `txt` | desconocido | **factura** | 21.0% | Revisión | Contabilidad_Tesoreria (Dominio_Financiero) |
+| 15 | `contrato_servicios_2026.txt` | `txt` | contrato | **contrato** | 92.3% | Procesado | Area_Juridica (Dominio_Legal) |
+| 16 | `factura_proveedor_servicios.txt` | `txt` | factura | **factura** | 96.1% | Procesado | Contabilidad_Tesoreria (Dominio_Financiero) |
+| 17 | `balance_general_ejercicio.docx` | `docx` | reporte_financiero | **reporte_financiero** | 99.7% | Procesado | Contabilidad_Tesoreria (Dominio_Financiero) |
+| 18 | `manual_despliegue_contenedores.md` | `md` | manual_tecnico | **manual_tecnico** | 98.8% | Procesado | Operaciones_TI (Dominio_Tecnologico) |
+| 19 | `circular_politica_laboral.txt` | `txt` | memorando | **memorando** | 98.8% | Procesado | Gestion_Humana (Dominio_Administrativo) |
+| 20 | `acta_comite_directivo.txt` | `txt` | acta_reunion | **acta_reunion** | 98.5% | Procesado | Gestion_Humana (Dominio_Administrativo) |
+| 21 | `receta_reposteria_atipica.txt` | `txt` | desconocido | **factura** | 21.0% | Revisión | Contabilidad_Tesoreria (Dominio_Financiero) |
 
 
 ---
