@@ -1,0 +1,6 @@
+FACTURA ELECTRÓNICA DE VENTA FE-44910
+Emisor: Infraestructura Cloud Andina S.A.S. - NIT: 900.542.118-4
+Cliente: Corporación Universitaria
+Concepto: Servicios de computación en la nube periodo agosto 2026
+Subtotal: $ 4.500.000 COP | IVA 19%: $ 855.000 COP | Retención Fuente: $ 180.000 COP
+Total neto a pagar: $ 5.175.000 COP. Código QR fiscal DIAN.

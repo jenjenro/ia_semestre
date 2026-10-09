@@ -1,0 +1,7 @@
+Factura de venta electrónica para el cliente corporativo.
+NIT del emisor: 900.123.456-7
+Cantidad: 1 | Item: Servidor Cloud | Valor: $ 1500
+Cantidad: 2 | Item: Mantenimiento | Valor: $ 500
+Cantidad: 5 | Item: Licencias | Valor: $ 50
+Total a pagar en esta factura: $ 2050 USD.
+

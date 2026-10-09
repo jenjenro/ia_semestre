@@ -3,91 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Clasificador de Documentos IA</title>
+    <!-- Tailwind CSS for robust, guaranteed styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <header class="topbar">
-        <div class="topbar-left">
-            <div class="logo-badge">Studio</div>
-            <div class="title-container">
-                <h1>Dashboard <span class="separator">•</span> Sistema análisis documental</h1>
-            </div>
-        </div>
-        <div class="topbar-right">
-            <button id="theme-toggle" title="Cambiar Tema (Claro/Oscuro)">🌓</button>
-            <div class="module-badge">Recopilación de prácticas IA</div>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header class="bg-indigo-600 text-white shadow-md p-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <h1 class="text-xl font-bold"><i class="fas fa-brain mr-2"></i> IA Análisis Documental</h1>
         </div>
     </header>
 
-    <nav class="week-nav" id="week-tabs"></nav>
-    <div class="metrics-bar" id="metrics-container"></div>
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl mx-auto w-full p-4 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        
+        <!-- Left Column: Upload & History -->
+        <div class="md:col-span-1 flex flex-col gap-6">
+            
+            <!-- Upload Card -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h2 class="text-lg font-semibold mb-4 text-indigo-700"><i class="fas fa-upload mr-2"></i> Subir Archivo</h2>
+                
+                <form id="uploadForm" class="flex flex-col gap-4">
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:bg-gray-50 transition-colors">
+                        <input type="file" id="fileInput" class="w-full text-sm text-gray-500
+                        file:mr-4 file:py-2 file:px-4
+                        file:rounded-full file:border-0
+                        file:text-sm file:font-semibold
+                        file:bg-indigo-50 file:text-indigo-700
+                        hover:file:bg-indigo-100 cursor-pointer" accept=".png,.jpg,.jpeg,.pdf,.docx,.txt,.md" required>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-play"></i> Procesar
+                    </button>
+                    <button type="button" id="resetBtn" class="hidden w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-redo"></i> Analizar otro
+                    </button>
+                </form>
+            </div>
 
-    <main class="workspace">
-        <section class="panel left-panel" id="left-panel">
-            <div class="panel-header">
-                <div class="file-info">
-                    <span>📄</span>
-                    <span class="label">Archivo Activo:</span>
-                    <span class="file-path" id="file-path">src/...</span>
+            <!-- History Card -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex-grow flex flex-col max-h-[500px]">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-indigo-700"><i class="fas fa-history mr-2"></i> Historial</h2>
+                    <div>
+                        <button id="clearHistory" class="text-red-400 hover:text-red-600 mr-3" title="Borrar todo el historial"><i class="fas fa-trash-alt"></i></button>
+                        <button id="refreshHistory" class="text-gray-400 hover:text-indigo-600" title="Actualizar historial"><i class="fas fa-sync-alt"></i></button>
+                    </div>
                 </div>
-                <div class="panel-controls">
-                    <span class="line-count" id="line-count">0 líneas</span>
-                    <button class="expand-btn" onclick="togglePanel('left')" title="Expandir/Contraer">⛶</button>
+                <div id="historyList" class="overflow-y-auto flex-grow flex flex-col gap-3">
+                    <div class="text-sm text-gray-500 text-center mt-4">Cargando historial...</div>
                 </div>
             </div>
-            <div class="code-container" id="code-container"></div>
-        </section>
+            
+        </div>
 
-        <div class="resizer" id="dragMe"></div>
-
-        <section class="panel right-panel" id="right-panel">
-            <div class="panel-header">
-                <div class="didactic-title">
-                    <span>💡</span> Análisis Conceptual
-                </div>
-                <div class="panel-controls">
-                    <span class="current-line-indicator" id="current-line-indicator">Selecciona una línea</span>
-                    <button class="expand-btn" onclick="togglePanel('right')" title="Expandir/Contraer">⛶</button>
-                </div>
-            </div>
-            <div class="explanation-container" id="explanation-container">
-                <div class="empty-state" id="empty-state">
-                    <h3>Bienvenido al Laboratorio Interactivo</h3>
-                    <p>Haz clic en cualquier línea del código fuente para cargar el análisis didáctico correspondiente.</p>
+        <!-- Right Column: Results -->
+        <div class="md:col-span-2">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 min-h-full">
+                <h2 class="text-lg font-semibold mb-6 text-indigo-700 border-b pb-2"><i class="fas fa-poll-h mr-2"></i> Resultados del Análisis</h2>
+                
+                <div id="loadingState" class="hidden flex-col items-center justify-center py-20 text-indigo-600">
+                    <i class="fas fa-circle-notch fa-spin fa-4x mb-4"></i>
+                    <p class="font-medium text-lg">Procesando con IA...</p>
                 </div>
 
-                <div class="explanation-card" id="explanation-card" style="display: none;">
-                    <div class="overview-box">
-                        <div class="overview-title">❖ Visión General del Bloque</div>
-                        <div class="overview-text" id="exp-overview">...</div>
-                    </div>
+                <div id="emptyState" class="flex flex-col items-center justify-center py-20 text-gray-400">
+                    <i class="fas fa-file-invoice fa-5x mb-4"></i>
+                    <p class="text-lg font-medium text-gray-500">Selecciona un documento para comenzar</p>
+                </div>
 
-                    <div class="code-snippet-box">
-                        <span class="snippet-label" id="exp-line-num">Línea 1</span>
-                        <code class="snippet-code" id="exp-snippet">...</code>
-                        <span class="snippet-type" id="exp-type">Sentencia</span>
-                    </div>
-
-                    <div class="didactic-section">
-                        <div class="section-title pink">📌 ¿Qué hace la línea?</div>
-                        <p class="section-text" id="exp-what">...</p>
-                    </div>
-
-                    <div class="didactic-section">
-                        <div class="section-title blue">🎯 ¿Para qué sirve en el proyecto de IA?</div>
-                        <p class="section-text" id="exp-why">...</p>
-                    </div>
-
-                    <div class="didactic-section">
-                        <div class="section-title purple">💻 Conceptos de programación y Python aplicados</div>
-                        <p class="section-text" id="exp-concepts">...</p>
-                    </div>
+                <div id="resultsContent" class="hidden flex flex-col gap-6">
+                    <!-- Results will be injected here by JS -->
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
-    <script src="app.js"></script>
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+        <button id="closeModal" class="absolute top-6 right-8 text-white text-3xl hover:text-gray-300"><i class="fas fa-times"></i></button>
+        <img id="modalImg" src="" class="max-w-full max-h-[90vh] rounded shadow-2xl">
+    </div>
+
+    <script src="app.js?v=3.9"></script>
 </body>
 </html>
+

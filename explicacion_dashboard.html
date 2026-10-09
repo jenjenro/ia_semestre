@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Explicacion Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
+        h1 { color: #4f46e5; }
+        h2 { color: #3730a3; border-bottom: 2px solid #e0e7ff; padding-bottom: 5px; }
+        pre { background: #f3f4f6; padding: 10px; border-radius: 5px; font-size: 14px; overflow-x: auto; }
+        ul { margin-bottom: 20px; }
+        code { background: #e0e7ff; color: #3730a3; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Explicacion Linea a Linea del Dashboard (Frontend)</h1>
+    <p>El dashboard se compone de dos archivos principales en la carpeta <code>dashboard/</code>: <strong>index.html</strong> y <strong>app.js</strong>.</p>
+    
+    <h2>1. index.html (Estructura y Estilos visuales)</h2>
+    <ul>
+        <li><strong>Tailwind CSS:</strong> En la seccion <code>&lt;head&gt;</code> cargamos Tailwind via CDN. Esto nos permite disenar botones, paneles y sombras directamente usando clases en el HTML (como <code>bg-indigo-600</code> o <code>rounded-lg</code>) sin escribir un archivo de estilos CSS separado.</li>
+        <li><strong>FontAwesome:</strong> Tambien se carga en el <code>&lt;head&gt;</code> para utilizar iconos como el de la papelera (<code>fas fa-trash</code>) o la lupa.</li>
+        <li><strong>Estructura de Columnas:</strong> La pagina se divide en dos grandes columnas:
+            <ul>
+                <li><strong>Panel Izquierdo:</strong> Contiene el formulario principal (<code>&lt;form id="uploadForm"&gt;</code>) donde el usuario selecciona un archivo. Tambien muestra los estados de "Cargando..." y la seccion de resultados.</li>
+                <li><strong>Panel Derecho:</strong> Muestra el panel del Historial, el boton de actualizar y el boton de vaciar historial.</li>
+            </ul>
+        </li>
+        <li><strong>Modal de Imagenes:</strong> Al final del documento hay un contenedor oculto (<code>div id="imageModal"</code>) que sirve para mostrar las imagenes procesadas en pantalla completa cuando el usuario hace clic en ellas.</li>
+    </ul>
+
+    <h2>2. app.js (Logica e Interactividad)</h2>
+    <p>Este archivo es el corazon del frontend y se encarga de comunicarse con el servidor Python (FastAPI).</p>
+    
+    <ul>
+        <li><pre><code>const API_BASE = (window.location.port === '8000') ? '' : `http://${window.location.hostname || 'localhost'}:8000`;</code></pre>
+        <strong>Configuracion de Red:</strong> Esta linea calcula automaticamente la direccion del servidor. Si estas usando VS Code Live Server (puerto 5500), deduce que el backend esta corriendo en el puerto 8000 de tu maquina para evitar errores de red (Failed to fetch) o problemas de CORS.</li>
+        
+        <li><pre><code>const uploadForm = document.getElementById('uploadForm');</code></pre>
+        <strong>Captura de Elementos:</strong> Se declaran variables para controlar cada pedazo del HTML desde Javascript.</li>
+        
+        <li><pre><code>uploadForm.addEventListener('submit', async (e) =&gt; { ... })</code></pre>
+        <strong>Subida de Archivos:</strong> Cuando se presiona "Procesar", se detiene la recarga de la pagina con <code>e.preventDefault()</code>. Se arma un paquete (<code>FormData</code>) con el archivo seleccionado y se hace un <code>fetch()</code> a la ruta <code>/api/upload</code> del servidor.</li>
+        
+        <li><pre><code>function renderImageResults(data) / renderTextResults(data)</code></pre>
+        <strong>Renderizado Dinamico:</strong> Dependiendo del tipo de archivo (Texto o Imagen), se genera el HTML para mostrar la clasificacion, el nivel de confianza y la explicacion de que caracteristicas tomo la IA. Todo este HTML se inserta dentro del contenedor <code>resultsContent</code>.</li>
+        
+        <li><pre><code>async function loadHistory() { ... }</code></pre>
+        <strong>Carga del Historial:</strong> Hace una peticion <code>GET</code> a <code>/api/history</code>. Recorre cada elemento de la base de datos y pinta una tarjeta con el nombre del documento y su categoria. Le anade <code>onclick="handleHistoryClick(this)"</code> para que sean clickeables.</li>
+        
+        <li><pre><code>window.handleHistoryClick = function(element) { ... }</code></pre>
+        <strong>Visualizar Historial:</strong> Cuando haces clic en un elemento del panel derecho, esta funcion extrae los datos JSON guardados en esa tarjeta y los renderiza en la vista principal usando la funcion <code>renderHistoryResult(item)</code>.</li>
+
+        <li><pre><code>clearHistoryBtn.addEventListener('click', ...)</code></pre>
+        <strong>Borrar Todo:</strong> Al confirmar, envia una peticion <code>DELETE /api/history</code> que le avisa a Python y SQLite que borren la base de datos completa.</li>
+
+        <li><pre><code>window.deleteHistoryItem = async function(e, id) { ... }</code></pre>
+        <strong>Borrado Individual:</strong> Manda un <code>DELETE /api/history/{id}</code> para borrar especificamente ese archivo. <code>e.stopPropagation()</code> evita que al hacer clic en la papelera se abra el documento por error.</li>
+    </ul>
+
+    <p style="text-align: center; margin-top: 50px; color: #888;">
+        <em>Puedes imprimir esta pagina (Ctrl+P) y seleccionar "Guardar como PDF" si deseas conservar este documento.</em>
+    </p>
+</body>
+</html>
+

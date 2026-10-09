@@ -338,13 +338,25 @@ def consultar_evidencias(db_path: Path = DB_PATH, limite: int = 15) -> list[dict
         cursor = conn.cursor()
         cursor.execute("""
             SELECT id, timestamp, fuente_documento, tipo_fuente, categoria_real, categoria_predicha,
-                   nivel_confianza, estado_proceso, categoria_dominio, departamento_destino
+                   nivel_confianza, estado_proceso, categoria_dominio, departamento_destino,
+                   resumen_contenido, significado_ontologico
             FROM evidencia_reconocimiento
             ORDER BY id DESC
             LIMIT ?;
         """, (limite,))
         rows = cursor.fetchall()
         return [dict(r) for r in rows]
+
+def eliminar_evidencia(id_evidencia: int = None, db_path: Path = DB_PATH) -> bool:
+    """Elimina un registro específico o todos si id_evidencia es None."""
+    with sqlite3.connect(db_path) as conn:
+        cursor = conn.cursor()
+        if id_evidencia is not None:
+            cursor.execute("DELETE FROM evidencia_reconocimiento WHERE id = ?;", (id_evidencia,))
+        else:
+            cursor.execute("DELETE FROM evidencia_reconocimiento;")
+        conn.commit()
+        return True
 
 
 def consultar_estadisticas_bd(db_path: Path = DB_PATH) -> dict:
